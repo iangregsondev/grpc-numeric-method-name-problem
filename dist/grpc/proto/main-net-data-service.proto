@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package main_net_data_service;
+
+service MainNetDataService {
+  rpc GetLastBlocksByHour (GetLastBlocksByHourRequest) returns (GetLastBlocksByHourResponse) {}
+  rpc GetLargestBlocksSizes24h (GetLargestBlocksSizes24hRequest) returns (GetLargestBlocksSizes24hResponse) {}
+  rpc GetLargestBlocksSizes (GetLargestBlocksSizesRequest) returns (GetLargestBlocksSizesResponse) {}
+  rpc GetLargestBlocksSizes12 (GetLargestBlocksSizesRequest) returns (GetLargestBlocksSizesResponse) {}
+  rpc GetLargestBlocksSizes24 (GetLargestBlocksSizes24hRequest) returns (GetLargestBlocksSizes24hResponse) {}
+  rpc GetLargestBlocksSizes48h (GetLargestBlocksSizes24hRequest) returns (GetLargestBlocksSizes24hResponse) {}
+  rpc GetLargestBlocksSizes48hours (GetLargestBlocksSizes24hRequest) returns (GetLargestBlocksSizes24hResponse) {}
+  rpc GetLargestBlocksSizes123hours (GetLargestBlocksSizesRequest) returns (GetLargestBlocksSizesResponse) {}
+  rpc Get123hours (GetLargestBlocksSizesRequest) returns (GetLargestBlocksSizesResponse) {}
+}
+
+
+message GetLastBlocksByHourRequest {
+  int32 hours = 1;
+}
+
+message GetLastBlocksByHourResponse {
+  repeated Block blocks = 1;
+}
+
+message GetLargestBlocksSizes24hRequest {
+}
+
+message GetLargestBlocksSizes24hResponse {
+  repeated Block blocks = 1;
+}
+
+message GetLargestBlocksSizesRequest {
+}
+
+message GetLargestBlocksSizesResponse {
+  repeated Block blocks = 1;
+}
+
+
+message Block {
+  string hash = 1;
+  string previousBlock = 2;
+  string time = 3;
+  int32 height = 4;
+  string size = 5;
+  int32 numberOfTxs = 6;
+  int32 difficulty = 7;
+  string version = 8;
+  string merkleRoot = 9;
+  string medianTime = 10;
+  string nonce = 11;
+  string bits = 12;
+  string chainWork = 13;
+  bool longestChain = 14;
+}
